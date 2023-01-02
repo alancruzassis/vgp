@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ficou fácil comparar suplementos e encontrar o melhor custo benefício. Não importa o quanto varie a quantidade, a porção ou a concentração. Vem pro Web APP desenvolvido na UNEB.">
+
+    <title>VGP</title>
+
+<style>
+    html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        textarea:focus, input:focus{
+            outline: none;
+        }
+        body{
+            height:100%;
+            width: 100%;
+            background-color: #fefefe;
+            display: flex;
+            flex-direction: column;
+            min-height:100vh;
+        }
+
+        html{
+            height:10%;
+            width: 100%;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;    
+            width: 100%;
+            height: 100%;
+            padding-right: 4%;
+            padding-left: 4%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            box-sizing: border-box;
+            font-family:'Trebuchet MS', sans-serif;
+            font-size: 18px;
+        }
+
+        header{
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            color: #951ABE;
+            padding: 10px 20px 12px 3.5%;
+            margin-bottom: 15px;
+            box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
+            
+            position: relative;
+        }
+
+        h1{
+            font-family: Helvetica, Candara, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+        }        
+        h2{
+            font-size: 20px;
+            font-family:'Trebuchet MS', sans-serif;
+        }
+        .inputNumber{
+            font-size: 18px;
+            height: 23px;
+            width: 100px;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 1px solid #951ABE;
+           border-radius: 5px;
+           margin-right: 10px;
+           margin-left: 5px;
+           text-align: center;
+        }
+
+        .inputDate{
+            font-size: 18px;
+            height: 23px;
+            width: auto;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 1px solid #951ABE;
+           border-radius: 5px;
+           text-align: center;
+        }
+
+        .flex-column{
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-spaceBetween{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        footer{
+			font-family: 'Trebuchet MS', sans-serif;
+			font-size: 15px;
+			color: white;
+			text-shadow: 0.5px 0.5px 0px gray;
+			
+			width:100%;
+			left: 0px;
+			min-width: 100%;
+			background-color: #951ABE;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+			margin: 0;
+			border: 0;
+			}
+    
+</style>    
+</head>
+<body>
+    <header>
+        <h1>VGP</h1>
+        <h2>Velocidade de Ganho de Peso</h2>
+    </header>
+<div class="content">
+    <main>
+        <form action="none" method="get" oninput="result()">
+            <section class="flex-column">
+                <div class="flex-spaceBetween">
+                    <div>
+                    <label for="peso1">Peso Inicial (g): </label><input class="inputNumber" id="peso1" type="number">
+                </div>
+                <div>
+                    <label for="data1">Data: </label><input class="inputDate" id="data1" type="date" placeholder="DD/MM/AAAA">  
+                </div>
+                </div>
+                <div class="flex-spaceBetween">
+                <div>
+                    <label for="peso2">Peso Final (g): </label><input class="inputNumber" id="peso2" type="number">
+                </div>
+                <div>
+                    <label for="data2">Data: </label><input class="inputDate" id="data2" type="date" placeholder="DD/MM/AAAA">
+                </div>
+                </div>
+                <div style="display:flex; justify-content: center; align-items: baseline;">
+                    <label for="vgp" style="font-weight: bold;">VGP (g/kg/dia): </label><input class="inputNumber" id="vgp" type="number" style="font-weight: bold;">
+                </div>
+                
+            </section>
+        </form>
+    </main>
+</div>
+    <footer>
+		<div>
+		© Copyright 2023</i>
+		</div>
+	</footer>
+    <script>
+        function result(){
+            //SELECTION
+            let peso1 = document.getElementById('peso1');
+            let peso2 = document.getElementById('peso2');
+            let vgp = document.getElementById('vgp');
+            let data1 = document.getElementById('data1');
+            let data2 = document.getElementById('data2');
+            //ATRIBUITION
+            peso1 = peso1.value*1;
+            peso2 = peso2.value*1;
+            data1 = new Date (data1.value).getTime();
+            data2 = new Date (data2.value).getTime();
+
+            //MATH
+            let subtracaoPeso = parseFloat((peso2-peso1));
+            let media = parseFloat((peso1+peso2)/2).toFixed(2);
+            let subtracaoData = parseFloat((data2-data1)/86400000);
+            
+            let velocidadeGanhoPeso = parseFloat(subtracaoPeso/(media/1000)/subtracaoData).toFixed(2)
+            //DISPLAY
+            if(peso1>0&&peso2>0&&subtracaoData>0&&data1>0&&data2>0){
+                vgp.value=velocidadeGanhoPeso;
+                console.log(velocidadeGanhoPeso)
+            }
+            
+    
+        }
+    </script>
+</body>
+</html>
