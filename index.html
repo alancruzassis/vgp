@@ -63,6 +63,7 @@
             box-sizing: border-box;
             font-family:'Trebuchet MS', sans-serif;
             font-size: 18px;
+            color: #333333;
         }
 
         header{
@@ -72,9 +73,9 @@
             align-items: center;
             background-color: #ffffff;
             color: #951ABE;
-            padding: 10px 20px 12px 3.5%;
+            padding: 6px 12px 6px 12px;
             box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
-            
+            margin-bottom: 8px;
             position: relative;
         }
 
@@ -132,7 +133,7 @@
         .divH4{
             color: gray;
             font-size: 10px;
-            margin-top: 60px;
+            margin-top: 15px;
             margin-bottom: 15px;
             display: flex;
             flex-direction: column;
@@ -154,8 +155,8 @@
 			left: 0px;
 			min-width: 100%;
 			background-color: #951ABE;
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-top: 8px;
+			padding-bottom: 8px;
 			text-align: center;
 			margin: 0;
 			border: 0;
@@ -170,6 +171,9 @@
     </header>
 <div class="content">
     <main>
+        <div style="font-weight: bold; margin-bottom: 20px;">
+            Método: Média de dois pontos </br></br>
+        </div>
         <form action="none" method="get" oninput="result()">
             <section class="flex-column">
                 <div class="flex-spaceBetween">
@@ -192,20 +196,29 @@
                 <div style="display:flex; justify-content: center; align-items: baseline;">
                     <label for="vgp" style="font-weight: bold;">VGP (g/kg/dia): </label><input class="inputNumber" id="vgp" type="number" style="font-weight: bold;">
                 </div>
-                
             </section>
         </form>
     <div>
-        <div class="divH4">
-            <h4>Criador: </h4>
-            <p class="pH4"><a class="lattes" href="http://lattes.cnpq.br/4993291222018594" target="_blank">Alan da Cruz Assis da Silva</a></p>
-        </div>
-        <section class="siteInfo" style="display: flex; flex-direction: column;">
-            <p class="lastUpdated" style="color: gray;">Atualizado por último em 01/01/2023</p></br>
-            <p class="lastUpdated" style="color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/transformsolucoes/termos.pdf">Termos de uso</a></p>
-        </section>
-    </div>
+        
+        
     </main>
+   
+</div>
+<div class="divH4" style="max-width: 900px; margin-left: 4%;">
+    <div>
+        <span style="font-weight: bold;">Fórmula:</span></br>
+        VGP = (Peso Final(g) - Peso Inicial(g)) / Média dos pesos no período(kg) / nº de dias do período</br></br>
+        <span style="font-weight: bold;">Referência:</span></br>
+        T.R. Fenton, T. Senterre, I.J. Griffin Time interval for preterm infant weight gain velocity calculation precision Arch Dis Child Fetal Neonatal Ed, 104 (2) (2019), pp. F218-F219
+    </div></br>
+    <h4><span style="font-weight: bold;">Criado por:</span> </h4>
+    <p class="pH4"><a class="lattes" href="http://lattes.cnpq.br/4993291222018594" target="_blank">Alan da Cruz Assis da Silva</a></p>
+    <section class="siteInfo" style="display: flex; flex-direction: column;">
+        <p class="lastUpdated" style="color: gray;">Atualizado por último em 02/01/2023</p></br>
+        <p class="lastUpdated" style="color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/transformsolucoes/termos.pdf">Termos de uso</a></p>
+    </section>
+</div>
+
 </div>
     <footer>
 		<div>
