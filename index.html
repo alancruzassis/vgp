@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ficou fácil comparar suplementos e encontrar o melhor custo benefício. Não importa o quanto varie a quantidade, a porção ou a concentração. Vem pro Web APP desenvolvido na UNEB.">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family='open sans':wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="shortcut icon" href="vgpico.ico" >
 
@@ -42,6 +46,7 @@
             display: flex;
             flex-direction: column;
             min-height:100vh;
+            font-family: 'open sans', sans-serif;
         }
 
         html{
@@ -61,7 +66,7 @@
             padding-top: 1%;
             padding-bottom: 1%;
             box-sizing: border-box;
-            font-family:'Trebuchet MS', sans-serif;
+            font-family:'open sans', sans-serif;
             font-size: 18px;
             color: #333333;
         }
@@ -80,13 +85,16 @@
         }
 
         h1{
-            font-family: Helvetica, Candara, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-family: 'open sans', Candara, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 40px;
             font-weight: 600;
         }        
-        h2{
+        header h2{
             font-size: 20px;
-            font-family:'Trebuchet MS', sans-serif;
+            font-family:'open sans', sans-serif;
+        }
+        input{
+            font-family: 'open sans', sans-serif;
         }
         .inputNumber{
             font-size: 18px;
@@ -180,7 +188,7 @@
             text-align: center;
         }
         footer{
-			font-family: 'Trebuchet MS', sans-serif;
+			font-family: 'open sans', sans-serif;
 			font-size: 15px;
 			color: white;
 			text-shadow: 0.5px 0.5px 0px gray;
@@ -212,7 +220,7 @@
 <div class="content">
     <main>
         <div style="font-weight: bold; margin-bottom: 20px;">
-            Método: Média de dois pontos </br></br>
+            <h2 style="color: #555;">Método: Média de dois pontos</h2></br>
         </div>
         <form action="none" method="get" oninput="result()" oninput="erros()">
             <section class="flex-column">
@@ -298,10 +306,10 @@
             //DISPLAY
             if(peso1>0&&peso2>0&&subtracaoData>0&&data1>0&&data2>0&&data1<data2){
                 vgp.value=velocidadeGanhoPeso;
-		vgp.style.color="black";
+                vgp.style.color="black";
             }else{
                 vgp.value=9999;
-                vgp.style.color="transparent"
+                vgp.style.color="transparent";
             }
               
         }
