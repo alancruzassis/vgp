@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ficou fácil comparar suplementos e encontrar o melhor custo benefício. Não importa o quanto varie a quantidade, a porção ou a concentração. Vem pro Web APP desenvolvido na UNEB.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family='open sans':wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="vgpico.ico" >
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <title>VGP</title>
+
+<style>
+    html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        textarea:focus, input:focus{
+            outline: none;
+        }
+        body{
+            height:100%;
+            width: 100%;
+            background-color: #fefefe;
+            display: flex;
+            flex-direction: column;
+            min-height:100vh;
+            font-family: 'open sans', sans-serif;
+        }
+
+        html{
+            height:10%;
+            width: 100%;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;    
+            width: 100%;
+            height: 100%;
+            padding-right: 4%;
+            padding-left: 4%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            box-sizing: border-box;
+            font-family:'open sans', sans-serif;
+            font-size: 18px;
+            color: #333333;
+        }
+
+        header{
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            color: #951ABE;
+            padding: 6px 12px 6px 12px;
+            box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        h1{
+            font-family: 'open sans', Candara, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+        }        
+        header h2{
+            font-size: 20px;
+            font-family:'open sans', sans-serif;
+        }
+        input{
+            font-family: 'open sans', sans-serif;
+        }
+        .inputNumber{
+            font-size: 18px;
+            height: 23px;
+            width: 100px;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 1px solid #951ABE;
+           border-radius: 5px;
+           margin-right: 10px;
+           margin-left: 5px;
+           text-align: center;
+        }
+
+        .inputDate{
+            font-size: 18px;
+            height: 23px;
+            width: auto;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 1px solid #951ABE;
+           border-radius: 5px;
+           text-align: center;
+        }
+
+        .flex-column{
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-spaceBetween{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        hr{
+            width: 100%;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
+            border-bottom: 1px solid violet;
+            margin-bottom: 20px;
+        }
+        .divH4{
+            color: gray;
+            font-size: 12px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+        }
+        .divH4 a{
+            color: gray;
+        }
+        .siteInfo{
+            font-size: 10px;
+        }
+        #btnLerMais, #btnLerMais2{
+		cursor: pointer;
+		color: #951ABE;
+		font-weight: bold;
+		background-color: transparent;
+		border: none;
+		padding-right: 3px;
+		padding-left: 3px;
+		}
+		#btnLerMais:hover{
+		color: violet;
+		}
+        #btnLerMais2:hover{
+		color: violet;
+		}
+		#maisTexto, #maisTexto2{
+		display: none;
+		}
+        .erroDtMaior{
+            font-size: 14px;
+            max-width: 400px; 
+            border: 1px solid red; 
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+        }
+        .erroMenorCinco{
+            font-size: 14px;
+            max-width: 400px; 
+            border: 1px solid orange; 
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+        }
+        footer{
+			font-family: 'open sans', sans-serif;
+			font-size: 15px;
+			color: white;
+			text-shadow: 0.5px 0.5px 0px gray;
+			
+			width:100%;
+			left: 0px;
+			min-width: 100%;
+			background-color: #951ABE;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			text-align: center;
+			margin: 0;
+			border: 0;
+			}
+        @media only screen and (max-width: 900px) {
+            
+            .divH4{
+            font-size: 10px;
+            }
+        }
+    
+</style>    
+</head>
+<body onload="speedmeter()">
+    <header style="display: flex; flex-direction: row; ">
+        <div style="display: flex; flex-direction: column; align-items: center; padding-left: 100px; margin-left: auto; margin-right: auto;">
+        <h1>VGP</h1>
+        <h2>Velocidade de Ganho de Peso</h2></div>
+        <div class="container d-flex justify-container-center" >
+            <div class="row" style="display: flex; flex-direction: column; align-items: center; font-size: 12px;">
+                <div class="col-md-12">
+                   <div id="chart_div" style="width: 80px; height: 80px;"></div>
+                </div>
+            </div>      
+    </header>
+<div class="content">
+    <main>
+        <div style="font-weight: bold; margin-bottom: 20px;">
+            <h2 style="color: #555;">Método: Média de dois pontos</h2></br>
+        </div>
+        <form action="none" method="get" oninput="result()" oninput="erros()" oninput="speedmeter()">
+            <section class="flex-column">
+                <div class="flex-spaceBetween">
+                    <div>
+                    <label for="peso1">Peso Inicial (g): </label><input class="inputNumber" id="peso1" type="number" onkeyup="PressEnter('data1');">
+                </div>
+                <div>
+                    <label for="data1">Data: </label><input class="inputDate" id="data1" type="date" placeholder="DD/MM/AAAA" onkeyup="PressEnter('peso2');" oninput="erros()">  
+                </div>
+                </div>
+                <div class="flex-spaceBetween">
+                <div>
+                    <label for="peso2">Peso Final (g): </label><input class="inputNumber" id="peso2" type="number" onkeyup="PressEnter('data2');">
+                </div>
+                <div>
+                    <label for="data2">Data: </label><input class="inputDate" id="data2" type="date" placeholder="DD/MM/AAAA" oninput="erros()">
+                </div>
+                </div>
+                <hr>
+                <div style="display:flex; justify-content: center; align-items: baseline;">
+                    <label for="vgp" style="font-weight: bold;">VGP (g/kg/dia): </label><input readonly class="inputNumber" id="vgp" type="number" style="font-weight: bold;">
+                </div>
+            </section>
+        </form>
+    <div>
+        
+        <div class="erroDtMaior" id="erroDtMaior" style="display: none;">
+            Ops! Você colocou uma data inicial ≥ data final.</br> Tenta de novo!
+        </div>
+        <div class="erroMenorCinco" id="erroMenorCinco" style="display: none;">
+            Você selecionou um período menor que 5 dias. O resultado pode estar impreciso. Saiba mais no artigo da referência.
+        </div>
+    </main>
+    
+    </div>
+</div>
+
+<div class="divH4" style="max-width: 900px; margin-left: 4%;">
+    <div>
+        <span style="font-weight: bold;">Fórmula</span><button onclick="lerMais2()" id="btnLerMais2" >&#9660;</button></br>
+        <span id="maisTexto2">
+			VGP = (Peso Final(g) - Peso Inicial(g)) / Média dos pesos no período(kg) / nº de dias do período</br></br> 
+		</span>
+    </br>
+        <span style="font-weight: bold;">Referência<button onclick="lerMais()" id="btnLerMais" >&#9660;</button></span></br>
+        <span id="maisTexto">
+			T.R. Fenton, T. Senterre, I.J. Griffin Time interval for preterm infant weight gain velocity calculation precision Arch Dis Child Fetal Neonatal Ed, 104 (2) (2019), pp. F218-F219 
+		</span>
+    </div></br>
+    <h4><span style="font-weight: bold;">Criado por:</span> </h4>
+    <p class="pH4"><a class="lattes" href="http://lattes.cnpq.br/4993291222018594" target="_blank">Alan da Cruz Assis da Silva</a>; <a class="lattes" href="http://lattes.cnpq.br/0992306717638027" target="_blank">Dra. Carla Regina Lima Mendonça</a></p>
+    <section class="siteInfo" style="display: flex; flex-direction: row; justify-content: space-between; padding-right: 2%;">
+        <p class="lastUpdated" style="color: gray;">Atualizado por último em 02/01/2023</p><p class="lastUpdated" style="color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/vgp/termos.pdf">Termos de uso</a></p>
+    </section>
+</div>
+
+</div>
+    <footer>
+		<div>
+		© Copyright 2023</i>
+		</div>
+	</footer>
+    <script>
+        function result(){
+            //SELECTION
+            let peso1 = document.getElementById('peso1');
+            let peso2 = document.getElementById('peso2');
+            let vgp = document.getElementById('vgp');
+            let data1 = document.getElementById('data1');
+            let data2 = document.getElementById('data2');
+            //ATRIBUITION
+            peso1 = peso1.value*1;
+            peso2 = peso2.value*1;
+            data1 = new Date (data1.value).getTime();
+            data2 = new Date (data2.value).getTime();
+
+            //MATH
+            let subtracaoPeso = parseFloat((peso2-peso1));
+            let media = parseFloat((peso1+peso2)/2).toFixed(2);
+            let subtracaoData = parseFloat((data2-data1)/86400000);
+            
+            let velocidadeGanhoPeso = parseFloat(subtracaoPeso/(media/1000)/subtracaoData).toFixed(2)
+            //DISPLAY
+            if(peso1>0&&peso2>0&&subtracaoData>0&&data1>0&&data2>0&&data1<data2){
+                vgp.value=velocidadeGanhoPeso;
+                vgp.style.color="black";
+            }else{
+                vgp.value=0;
+                vgp.style.color="transparent";
+            }
+              
+        }
+        
+    </script>
+    <script>
+        function erros(){
+                let data1 = document.getElementById('data1');
+                let data2 = document.getElementById('data2');
+                datai = new Date (data1.value).getTime();
+                dataf = new Date (data2.value).getTime();
+                datai =datai*1;
+                dataf=dataf*1;
+                var erroDtMaior = document.getElementById('erroDtMaior');
+                var erroMenorCinco = document.getElementById('erroMenorCinco');
+                let subtracaoData = parseFloat((dataf-datai)/86400000);
+                let vgp = document.getElementById('vgp');
+                
+               if(datai>=dataf){
+                    erroDtMaior.style.display="block";
+                    data1.style.borderColor="red";
+                    data2.style.borderColor="red";
+               }else{
+                    erroDtMaior.style.display="none";
+                    data1.style.borderColor="#951ABE";
+                    data2.style.borderColor="#951ABE";
+               }
+               if(subtracaoData<5&&datai<dataf){
+                    erroMenorCinco.style.display="block";
+                    vgp.style.borderColor="orange";
+               }else{
+                    erroMenorCinco.style.display="none";
+                    vgp.style.borderColor="#951ABE";
+               }
+               
+        }
+               
+        
+    </script>
+     <script type="text/javascript">
+
+        function PressEnter(nextinputId){
+            if(event.keyCode == 13){
+                document.getElementById(nextinputId).focus();     
+                return false;           
+            }
+        }
+    </script>
+    <script>
+        function lerMais(){ //Expandir/Retrair texto descrição dos autores
+        let maisTexto = document.getElementById('maisTexto');
+        let btnLerMais = document.getElementById("btnLerMais");
+        
+        if(maisTexto.style.display==="inline-block"){
+        maisTexto.style.display="none";
+        btnLerMais.innerHTML="&#9660;";
+        } else{
+        maisTexto.style.display="inline-block";
+        btnLerMais.innerHTML="▲";
+        }
+        }
+
+        function lerMais2(){ //Expandir/Retrair texto descrição dos autores
+        let maisTexto2 = document.getElementById('maisTexto2');
+        let btnLerMais2 = document.getElementById("btnLerMais2");
+        
+        if(maisTexto2.style.display==="inline-block"){
+        maisTexto2.style.display="none";
+        btnLerMais2.innerHTML="&#9660;";
+        } else{
+        maisTexto2.style.display="inline-block";
+        btnLerMais2.innerHTML="▲";
+        }
+        }
+
+
+        </script>
+        <script>
+        function speedmeter(){
+            
+            google.charts.load('current', {'packages':['gauge']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                let vgp = document.getElementById('vgp');
+                vgp=vgp.value*1;
+
+                var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['RNPT', vgp]
+                ]);
+
+                var options = {
+                width: 80, height: 80,
+                greenFrom: 0, greenTo: 14,
+                yellowFrom:21, yellowTo: 30,
+                redFrom: 30, redTo: 50,
+                
+                greenColor:'#FF0000',
+                max:50,
+                minorTicks: 5
+                };
+
+                var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+                chart.draw(data, options);
+                
+
+                setInterval(function() {
+                let vgp = document.getElementById('vgp');
+                vgp=vgp.value*1;
+                data.setValue(0, 1, vgp);
+                chart.draw(data, options);
+                }, 1000);
+                
+            }
+            
+        }; 
+        </script>
+</body>
+</html>
