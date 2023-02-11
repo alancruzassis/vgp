@@ -153,6 +153,11 @@
         .siteInfo{
             font-size: 10px;
         }
+        .erro{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         #btnLerMais, #btnLerMais2{
 		cursor: pointer;
 		color: #951ABE;
@@ -229,15 +234,16 @@
                     <label for="peso1">Peso Inicial (g): </label><input class="inputNumber" id="peso1" type="number" onkeyup="PressEnter('data1');">
                 </div>
                 <div>
-                    <label for="data1">Data: </label><input class="inputDate" id="data1" type="date" placeholder="DD/MM/AAAA" onkeyup="PressEnter('peso2');" oninput="erros()">  
+                    <label for="data1">Data Inicial: </label><input class="inputDate" id="data1" type="date" placeholder="DD/MM/AAAA" onkeyup="PressEnter('peso2');" oninput="erros()">  
                 </div>
+                <br><br><br>
                 </div>
                 <div class="flex-spaceBetween">
                 <div>
                     <label for="peso2">Peso Final (g): </label><input class="inputNumber" id="peso2" type="number" onkeyup="PressEnter('data2');">
                 </div>
                 <div>
-                    <label for="data2">Data: </label><input class="inputDate" id="data2" type="date" placeholder="DD/MM/AAAA" oninput="erros()">
+                    <label for="data2">Data Final: </label><input class="inputDate" id="data2" type="date" placeholder="DD/MM/AAAA" oninput="erros()">
                 </div>
                 </div>
                 <hr>
@@ -247,13 +253,14 @@
             </section>
         </form>
     <div>
-        
+    <div class="erro">    
         <div class="erroDtMaior" id="erroDtMaior" style="display: none;">
-            Ops! Você colocou uma data inicial ≥ data final.</br> Tenta de novo!
+            Por favor, selecione uma data inicial &lt; data final.
         </div>
         <div class="erroMenorCinco" id="erroMenorCinco" style="display: none;">
             Você selecionou um período menor que 5 dias. O resultado pode estar impreciso. Saiba mais no artigo da referência.
         </div>
+    </div>
     </main>
    
 </div>
